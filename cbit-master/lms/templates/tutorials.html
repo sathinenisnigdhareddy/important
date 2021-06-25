@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+{% block content %}
+<h1>Lecture vedios</h1>
+{% for i in files %}
+
+    <!-- Compiled and minified CSS -->
+
+    
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          
+          <tr>
+            
+			<td><a href="{{ i.lecture_vedios.url }}" target="_blank">{{i.sub_topic}}</a></td>
+
+		</tr>
+    </div>
+    </div>
+    {% endfor %}
+    {% if request.user.is_staff %}
+    <a class="btn-sm btn-info" href="{% url 'add_tutorials' %}">Add lecture Vedios</a>
+    {% endif %}
+    <h1>Lecture Notes</h1>
+
+    
+    {% for i in files %}
+    
+        <!-- Compiled and minified CSS -->
+    
+        
+    <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              
+              <tr>
+                
+          <td><a href="{{ i.lecture_notes.url }}" target="_blank">{{i.sub_topic}}</a></td>
+    
+        </tr>
+        </div>
+        </div>
+          
+        
+
+  {% endfor %}
+  {% if request.user.is_staff %}
+
+ 
+  <a class="btn-sm btn-info" href="{% url 'add_tutorials' %}">Add Lecture Notes</a>
+  {% endif %}
+  {% endblock %}
+            
